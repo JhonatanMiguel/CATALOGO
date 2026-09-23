@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: midnightblue;
+            color: white;
+            padding: 30px;
+            margin: 20px auto 40px;
+            border-radius: 15px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .produto {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 250px;
+            height: 360px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .foto {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .escondido {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🛍️ Catálogo de Produtos</h1>
+
+    <input type="text" id="busca" placeholder="🔍 Buscar...">
+
+    <div id="lista">
+
+        <div class="produto">
+            <div class="foto" id="foto1"></div>
+            <h3>Camiseta Estampada</h3>
+            <div class="preco">R$ 49,90</div>
+            <p>Camiseta de algodão. Categoria: Roupas</p>
+        </div>
+
+        <div class="produto">
+            <div class="foto" id="foto2"></div>
+            <h3>Tênis Esportivo</h3>
+            <div class="preco">R$ 199,90</div>
+            <p>Tênis para corrida. Categoria: Calçados</p>
+        </div>
+
+        <div class="produto">
+            <div class="foto" id="foto3"></div>
+            <h3>Relógio Digital</h3>
+            <div class="preco">R$ 89,90</div>
+            <p>À prova d'água. Categoria: Acessórios</p>
+        </div>
+
+        <div class="produto">
+            <div class="foto" id="foto4"></div>
+            <h3>Mochila Escolar</h3>
+            <div class="preco">R$ 79,90</div>
+            <p>Vários compartimentos. Categoria: Acessórios</p>
+        </div>
+
+        <div class="produto">
+            <div class="foto" id="foto5"></div>
+            <h3>Calça Jeans</h3>
+            <div class="preco">R$ 129,90</div>
+            <p>Estilo slim fit. Categoria: Roupas</p>
+        </div>
+
+        <div class="produto">
+            <div class="foto" id="foto6"></div>
+            <h3>Fone de Ouvido</h3>
+            <div class="preco">R$ 149,90</div>
+            <p>Bluetooth. Categoria: Eletrônicos</p>
+        </div>
+
+    </div>
+
+    <script src="fotos.js"></script>
+
+    <script>
+        document.getElementById("busca").addEventListener("input", function() {
+            var texto = this.value.toLowerCase();
+            var produtos = document.querySelectorAll(".produto");
+
+            produtos.forEach(function(produto) {
+                var conteudo = produto.innerText.toLowerCase();
+
+                if (conteudo.includes(texto)) {
+                    produto.classList.remove("escondido");
+                } else {
+                    produto.classList.add("escondido");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
